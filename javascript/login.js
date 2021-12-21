@@ -4,16 +4,13 @@ const password = document.querySelector("#password");
 const eyeIcon = document.querySelector("#eye-icon");
 
 form.onsubmit = (e) => {
-  //e.preventDefault();
-  email.className = validateElement(email)
-    ? "success"
-    : showErrorMessage("Email") && "error";
-  password.className = validateElement(password)
-    ? "success"
-    : "error" && showErrorMessage("Password") && "error";
+  e.preventDefault();
+  if (isEmpty(email)) return showErrorMessage("Email");
+  if (isEmpty(password)) return showErrorMessage("Password");
+  form.submit();
 };
 
-const validateElement = (element) => element.value.length > 0;
+const isEmpty = (element) => element.value.trim().length === 0;
 
 eyeIcon.addEventListener("click", function (e) {
   e.preventDefault();
