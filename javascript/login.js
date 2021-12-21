@@ -4,7 +4,7 @@ const password = document.querySelector("#password");
 const eyeIcon = document.querySelector("#eye-icon");
 
 form.onsubmit = (e) => {
-  e.preventDefault();
+  //e.preventDefault();
   email.className = validateElement(email)
     ? "success"
     : showErrorMessage("Email") && "error";

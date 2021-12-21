@@ -14,17 +14,18 @@
         <div class="header">
             <h2>Login</h2>
         </div>
-        <form action="" method="" id="form">
+        <form action="asp/login.asp" method="post" id="form">
             <div class="form-control">
                 <label for="">Email</label>
-                <input type="text" name="" id="email" placeholder="Enter your email">
+                <input type="text" name="email-id" id="email" placeholder="Enter your email">
             </div>
             <div class="form-control">
                 <label for="">Password</label>
-                <input type="password" name="" id="password" placeholder="Enter your password">
+                <input type="password" name="password" id="password" placeholder="Enter your password">
                 <i class="fas fa-eye-slash" id="eye-icon"></i>
             </div>
-            <button type="submit" class="btn" id="button" value="Submit">Submit</button>
+
+            <input type="submit" class="btn" id="button" value="Submit">
             <div class="form-control">
                 <p>Don't have an account? <a href="./pages/sign-up.html">SIGN UP</a></p>
             </div>
@@ -32,7 +33,7 @@
     </div>
 
     <script src="./javascript/login.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </body>
 
 </html>
