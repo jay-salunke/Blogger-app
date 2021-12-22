@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/create.css">
     <title>Blogger | Home</title>
 </head>
 
@@ -18,7 +17,6 @@
             <h1></h1>
             <h4>Create Page</h4>
             <i class="fas fa-bars"></i>
-            <input type="search" placeholder="Search..." name="" id="">
         </div>
     </nav>
     <div class="sidebar">
@@ -33,6 +31,7 @@
         </ul>
     </div>
     <div class="main">
+        <!-- BLOG PAGE -->
         <div class="card-container">
             <div class="card">
                 <div class="image">
@@ -86,8 +85,6 @@
                         iusto eius illum itaque dolores similique commodi culpa numquam necessitatibus, sequi odit
                         officia asperiores laborum. Eligendi, corporis iure. Lorem ipsum dolor sit amet consectetur,
                         adipisicing elit. Amet porro praesentium rem nostrum ducimus sint animi ratione est! Quam
-                        expedita ipsam magnam consectetur obcaecati deleniti aperiam assumenda aut quisquam quidem.
-                    </p>
                     <div class="details">
                         <h5>24 Dec, 2021</h5>
                         <h5>Jay Salunke</h5>
@@ -95,6 +92,34 @@
                 </div>
             </div>
         </div>
+
+        <!-- CREATE PAGE -->
+        <div class="card">
+            <div class="create-content">
+                <div class="photo-content">
+                    <img src="./images/create-blog.jpg" alt="">
+                </div>
+                <div class="form-content">
+                    <h5>Create Blog</h5>
+                    <form action="">
+                        <div class="control">
+                            <label for="">Title</label>
+                            <input type="text" placeholder="Enter title" name="">
+                        </div>
+                        <div class="control">
+                            <label for="">Content</label>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="control">
+                            <label for="">Select Image</label>
+                            <input type="file" placeholder="Select image" name="">
+                        </div>
+                        <button type="submit">Publish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

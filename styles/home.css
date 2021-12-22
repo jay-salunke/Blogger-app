@@ -70,6 +70,10 @@ nav .content i {
   display: none;
 }
 
+nav .content h4 {
+  font-size: 22px;
+}
+
 nav .content input {
   border: 1px solid #e1e1e1;
   outline: none;
@@ -91,6 +95,7 @@ nav .content input {
 .main .card-container {
   width: auto;
   display: grid;
+  display: none;
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 20px;
   overflow-y: auto;
@@ -100,8 +105,7 @@ nav .content input {
 .card-container .card {
   display: flex;
   border-radius: 5px;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 5px 5px;
   line-height: 1.5;
   font-size: 0.9em;
@@ -146,4 +150,10 @@ nav .content input {
 
 .card .content .details {
   padding: 10px 0 !important;
+}
+
+.card-container .card .content .details h5 {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: bold;
 }
