@@ -5,7 +5,6 @@
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 .create-content .photo-content {
   height: calc(100vh - 130px) !important;
   width: 40% !important;
@@ -28,11 +27,12 @@
   text-transform: uppercase;
   font-size: 28px;
   font-weight: bold;
+  margin-bottom: 20px !important;
 }
 
 .form-content .control {
   display: block;
-  margin-bottom: 35px !important;
+  margin-bottom: 20px !important;
 }
 
 .control label {

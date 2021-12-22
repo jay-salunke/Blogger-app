@@ -95,7 +95,7 @@ nav .content input {
 .main .card-container {
   width: auto;
   display: grid;
-  display: none;
+  /* display: none; */
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 20px;
   overflow-y: auto;
