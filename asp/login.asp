@@ -26,6 +26,11 @@
       <%
     else
       Response.Write("Welcome " & email)
+      'create a sessions
+      Session("email") = email
+      Session("username") = rs.fields("username")
+      Session("id") = rs.fields("id")
+      Response.Redirect("../home.asp")
     end if     
   end function
 %>

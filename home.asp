@@ -1,3 +1,5 @@
+<% @Language = "VBScript"%>
+<% Option Explicit%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +24,11 @@
         </div>
     </nav>
     <div class="sidebar">
-        <div class="header" onclick="open_page('home','grid')">
+        <div class="header" id="default_page" onclick="open_page('home','grid')">
             <h5><i class="fas fa-th-large"></i>Blogger App</h5>
         </div>
         <ul>
-            <li><a href="#" class="tab_link" id="default_page" onclick="open_page('create','flex')"><i
+            <li><a href="#" class="tab_link" onclick="open_page('create','flex')"><i
                         class="far fa-plus-square"></i></i>Create</a></li>
             <li><a href="#" class="tab_link" onclick="open_page()"><i class=" far
                     fa-heart"></i>Favourites</a></li>
@@ -34,6 +36,7 @@
             <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
+
     <div class="main">
         <!-- BLOG PAGE -->
         <div class="card-container tab_content" id="home">
@@ -62,61 +65,29 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="image">
-                    <img src="/images/sample.jpg" alt="computer">
-                </div>
-                <div class="content">
-                    <div class="title">
-                        <h4>Do something wrong</h4>
-                        <i class="far fa-heart"></i>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quibusdam odio minus atque
-                        libero ratione vel esse magnam quas, blanditiis nam ullam maxime dolorum sit officiis commodi
-                        repellendus. Vitae, inventore?
-                        Doloremque ex, exercitationem aliquam eos perferendis ut rerum nulla! Maiores labore, molestias
-                        iusto eius illum itaque dolores similique commodi culpa numquam necessitatibus, sequi odit
-                        officia asperiores laborum. Eligendi, corporis iure. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Amet porro praesentium rem nostrum ducimus sint animi ratione est! Quam
-                        expedita ipsam magnam consectetur obcaecati deleniti aperiam assumenda aut quisquam quidem.
-                        Doloremque ex, exercitationem aliquam eos perferendis ut rerum nulla! Maiores labore, molestias
-                        iusto eius illum itaque dolores similique commodi culpa numquam necessitatibus, sequi odit
-                        officia asperiores laborum. Eligendi, corporis iure. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Amet porro praesentium rem nostrum ducimus sint animi ratione est! Quam
-                        expedita ipsam magnam consectetur obcaecati deleniti aperiam assumenda aut quisquam quidem.
-                        Doloremque ex, exercitationem aliquam eos perferendis ut rerum nulla! Maiores labore, molestias
-                        iusto eius illum itaque dolores similique commodi culpa numquam necessitatibus, sequi odit
-                        officia asperiores laborum. Eligendi, corporis iure. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Amet porro praesentium rem nostrum ducimus sint animi ratione est! Quam
-                    <div class="details">
-                        <h5>24 Dec, 2021</h5>
-                        <h5>Jay Salunke</h5>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- CREATE PAGE -->
         <div class="card tab_content" id="create">
             <div class="create-content ">
                 <div class="photo-content">
-                    <img src="./images/create-blog.jpg" alt="">
+                    <img src="./images/create-blog.jpg" alt="" id="temp-img">
                 </div>
                 <div class="form-content">
                     <h5>Create Blog</h5>
-                    <form action="">
+                    <form action="./asp/blog.asp" method="POST">
                         <div class="control">
                             <label for="">Title</label>
-                            <input type="text" placeholder="Enter title" name="">
+                            <input type="text" id="title" placeholder="Enter title" name="title">
                         </div>
                         <div class="control">
                             <label for="">Content</label>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="content" id="content" cols="30" rows="10"></textarea>
                         </div>
                         <div class="control">
                             <label for="">Select Image</label>
-                            <input type="file" placeholder="Select image" name="">
+                            <input type="file" placeholder="Select image" id="file_path" name="file_path">
+                            <input type="hidden" id="file_source" name="file_source">
                         </div>
                         <button type="submit">Publish</button>
                     </form>
@@ -126,6 +97,7 @@
     </div>
 
     <script src="./javascript/tab_content.js"></script>
+    <script src="./javascript/create_blog.js"></script>
 </body>
 
 </html>

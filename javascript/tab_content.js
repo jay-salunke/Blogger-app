@@ -7,3 +7,9 @@ function open_page(pageName = "Home", displayType = "grid") {
   // show selected page
   document.getElementById(pageName).style.display = displayType;
 }
+
+const tabcontent = document.querySelectorAll(".tab_content");
+tabcontent.forEach((ele) => (ele.style.display = "none"));
+const home = document.getElementById("home");
+home.style.display = "grid";
+home.click();

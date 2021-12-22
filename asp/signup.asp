@@ -41,6 +41,10 @@
       %>
       <script>
         alert("Data Inserted Successfully");
+        Session("email") = email
+        Session("username") = rs.fields("username")
+        Session("id") = rs.fields("id")
+        Response.Redirect("../home.asp")
       </script>
       <%
     else
