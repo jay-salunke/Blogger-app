@@ -1,5 +1,10 @@
-<% @Language = "VBScript"%>
-<% Option Explicit%>
+<% @Language = "VBScript" %>
+<% Option Explicit %>  
+<%
+  If IsEmpty(Session("email")) Then 
+    Response.Redirect("index.html")
+  End If
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,38 +38,49 @@
             <li><a href="#" class="tab_link" onclick="open_page()"><i class=" far
                     fa-heart"></i>Favourites</a></li>
             <li><a href="#" class="tab_link"><i class="far fa-heart"></i>Profile</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="asp/logout.asp"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
     <div class="main">
         <!-- BLOG PAGE -->
         <div class="card-container tab_content" id="home">
-            <div class="card">
-                <div class="image">
-                    <img src="/images/sample.jpg" alt="computer">
-                </div>
-                <div class="content">
-                    <div class="title">
-                        <h4>Do something wrong</h4>
-                        <i class="far fa-heart"></i>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quibusdam odio minus atque
-                        libero ratione vel esse magnam quas, blanditiis nam ullam maxime dolorum sit officiis commodi
-                        repellendus. Vitae, inventore?
-                        Doloremque ex, exercitationem aliquam eos perferendis ut rerum nulla! Maiores labore, molestias
-                        iusto eius illum itaque dolores similique commodi culpa numquam necessitatibus, sequi odit
-                        officia asperiores laborum. Eligendi, corporis iure. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Amet porro praesentium rem nostrum ducimus sint animi ratione est! Quam
-                        expedita ipsam magnam consectetur obcaecati deleniti aperiam assumenda aut quisquam quidem.
-                    </p>
-                    <div class="details">
-                        <h5>24 Dec, 2021</h5>
-                        <h5>Jay Salunke</h5>
-                    </div>
-                </div>
-            </div>
+            <%
+                Dim con, rs, x
+
+                function connect()
+                    set con = Server.CreateObject("ADODB.Connection")
+                    con.ConnectionString = "PROVIDER=Microsoft.ACE.OLEDB.12.0"
+                    con.Open("D:\ASP Final Project\Blogger-app\database\Blogger.accdb")
+                end function
+                
+                connect()
+                set rs = Server.CreateObject("ADODB.recordset")
+                rs.Open "SELECT * FROM blogs INNER JOIN users ON blogs.user_id = users.id", con
+
+                Do Until rs.EOF 
+                        %>
+                            <div class="card">
+                                <div class="image">
+                                    <img src=<% Response.Write(rs("image_path")) %> alt="computer">
+                                </div>
+                                <div class="content">
+                                    <div class="title">
+                                        <h4><% Response.Write(rs("title")) %></h4>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                    <p><% Response.Write(rs("content")) %></p>
+                                    <div class="details">
+                                        <h5><% Response.Write(FormatDateTime(rs("created_at"), 1)) %></h5>
+                                        <h5><% Response.Write(rs("username")) %></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        <%
+                    rs.MoveNext
+                Loop
+                %>
+
         </div>
 
         <!-- CREATE PAGE -->
