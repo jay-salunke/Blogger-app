@@ -1,6 +1,6 @@
 <% @Language="VBScript" %>
-    <% Option Explicit %>
-        <% If IsEmpty(Session("email")) Then Response.Redirect("index.html") End If %>
+<% Option Explicit %>
+<% If IsEmpty(Session("email")) Then Response.Redirect("index.html") End If %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +57,7 @@
 
                 Do Until rs.EOF 
                         %>
-                            <div class="card">
+                            <div class="card" onclick="handleBlogClick(this);">
                                 <div class="image">
                                     <img src=<% Response.Write(rs("image_path")) %> alt="computer">
                                 </div>
@@ -72,6 +72,7 @@
                                         <h5><% Response.Write(rs("username")) %></h5>
                                     </div>
                                 </div>
+                                <input type="hidden" id="_id" name=<% Response.Write(rs("blog_id")) %> />
                             </div>
                         <%
                     rs.MoveNext
@@ -90,15 +91,15 @@
                     <h5>Create Blog</h5>
                     <form action="./asp/blog.asp" method="POST">
                         <div class="control">
-                            <label for="">Title</label>
+                            <label for="title">Title</label>
                             <input type="text" id="title" placeholder="Enter title" name="title">
                         </div>
                         <div class="control">
-                            <label for="">Content</label>
+                            <label for="content">Content</label>
                             <textarea name="content" id="content" cols="30" rows="10"></textarea>
                         </div>
                         <div class="control">
-                            <label for="">Select Image</label>
+                            <label for="file_path">Select Image</label>
                             <input type="file" placeholder="Select image" id="file_path" name="file_path">
                             <input type="hidden" id="file_source" name="file_source">
                         </div>
@@ -111,7 +112,7 @@
         <!-- PROFILE PAGE -->
         <%
              set rs = Server.CreateObject("ADODB.recordset")
-             rs.Open "SELECT * FROM users where username = '"& Session("username") &"'", con
+             rs.Open "SELECT * FROM users where [username] = '"& Session("username") & "'", con
         %>
         <div class="profile-page tab_content" id="profile">
             <div class="user-details">
@@ -190,10 +191,19 @@
                 </div>
             </div>
         </div>
+        <!-- OPEN VIEW PAGE -->
+        <div class="card tab_content" id="view">
+            <form action="asp/view_blog.asp" method="POST">
+                <div class="control">
+                    <input type="hidden" id="blog_id" name="blog_id">
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="./javascript/tab_content.js"></script>
     <script src="./javascript/create_blog.js"></script>
+    <script src="./javascript/view_blog.js"></script>
     <script src="./javascript/profile.js"></script>
 </body>
 

@@ -10,7 +10,7 @@ function open_page(pageName = "Home", displayType = "grid") {
 
 const tabcontent = document.querySelectorAll(".tab_content");
 tabcontent.forEach((ele) => (ele.style.display = "none"));
-// const home = document.getElementById("home");
-const home = document.getElementById("profile");
-home.style.display = "flex";
+const home = document.getElementById("home");
+// const home = document.getElementById("profile");
+home.style.display = "grid";
 home.click();
