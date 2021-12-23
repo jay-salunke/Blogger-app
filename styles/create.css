@@ -35,7 +35,7 @@
   margin-bottom: 20px !important;
 }
 
-.control label {
+.form-content .control label {
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;

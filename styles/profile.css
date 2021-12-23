@@ -1,0 +1,139 @@
+.profile-page {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.profile-page .user-details {
+  height: calc(100vh - 90px) !important;
+  width: 40% !important;
+  margin: auto 0;
+}
+
+.user-details h4 {
+  font-size: 25px;
+  padding: 10px !important;
+  font-weight: bold;
+}
+
+.container,
+.user-details .info {
+  padding: 0 10px !important;
+}
+
+.control {
+  margin-bottom: 5px !important;
+}
+
+.control label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 5px !important;
+}
+
+.change-password input,
+.info input {
+  width: 100%;
+  border: 1px solid #000;
+  outline: none;
+  padding: 5px 5px !important;
+  margin: 5px !important;
+}
+
+.change-password button {
+  color: #fff;
+  background-color: rgb(248, 100, 46);
+  border: none;
+  outline: none;
+  padding: 8px 15px !important;
+  font-size: 20px;
+  margin: 10px 0px 10px 5px !important;
+}
+
+.profile-page .blogs {
+  height: calc(100vh - 90px) !important;
+  width: 60% !important;
+  padding: 10px !important;
+  margin: auto 0;
+}
+
+.change-password {
+  display: block;
+}
+
+.blogs .card-container {
+  width: auto;
+  display: grid;
+  /* display: none; */
+  grid-template-columns: repeat(1, 1fr) !important;
+  gap: 20px;
+  overflow-y: auto;
+  background-color: var(--white-color);
+  min-height: 550px;
+  max-height: 550px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.card-container .card {
+  display: flex;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 5px 5px;
+  line-height: 1.5;
+  font-size: 0.9em;
+}
+
+.card .content {
+  padding: 10px 15px !important;
+}
+
+.card .image img {
+  height: 280px;
+  width: 100%;
+}
+
+.card .content .title,
+.card-container .card .content .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .content .title {
+  margin-bottom: 15px !important;
+}
+
+.card .content .title h4 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .content .title i {
+  font-size: 20px;
+}
+
+.card .content p {
+  min-height: 280px;
+  max-height: 280px;
+  font-size: 16px;
+  overflow-y: auto;
+}
+
+.card .content .details {
+  padding: 10px 0 !important;
+}
+
+.card-container .card .content .details h5 {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.blogs h4 {
+  font-size: 25px;
+  padding-bottom: 10px !important;
+  font-weight: bold;
+}
