@@ -1,5 +1,6 @@
 <% @Language="VBScript" %>
 <% Option Explicit %>
+<%Response.Buffer = False%>
 <% If IsEmpty(Session("email")) Then Response.Redirect("index.html") End If %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +33,7 @@
         <ul>
             <li><a href="#" class="tab_link" onclick="open_page('create','flex')"><i
                         class="far fa-plus-square"></i></i>Create</a></li>
-            <li><a href="#" class="tab_link" onclick="open_page()"><i class=" far
-                    fa-heart"></i>Favourites</a></li>
-            <li><a href="#" class="tab_link"><i class="far fa-user"></i>Profile</a></li>
+            <li><a href="#" class="tab_link" onclick="open_page('profile','flex')"><i class="far fa-user"></i>Profile</a></li>
             <li><a href="asp/logout.asp"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
@@ -57,7 +56,7 @@
 
                 Do Until rs.EOF 
                         %>
-                            <div class="card" onclick="handleBlogClick(this);">
+                            <div class="card">
                                 <div class="image">
                                     <img src=<% Response.Write(rs("image_path")) %> alt="computer">
                                 </div>
@@ -72,7 +71,6 @@
                                         <h5><% Response.Write(rs("username")) %></h5>
                                     </div>
                                 </div>
-                                <input type="hidden" id="_id" name=<% Response.Write(rs("blog_id")) %> />
                             </div>
                         <%
                     rs.MoveNext
@@ -120,12 +118,12 @@
                 <div class="info">
                     <div class="control">
                         <label for="">Username</label>
-                        <input type="text" value=<%Response.Write(rs("username"))%>>
+                        <input disabled type="text" value=<%Response.Write(rs("username"))%>>
                     </div>
 
                     <div class="control">
                         <label for="">Email address</label>
-                        <input type="email" value=<%Response.Write(rs("email_id"))%>>
+                        <input disabled type="email" value=<%Response.Write(rs("email_id"))%>>
                     </div>
         <%
             set rs = Server.CreateObject("ADODB.recordset")
@@ -133,7 +131,7 @@
         %>
                     <div class="control">
                         <label for="">Total blogs</label>
-                        <input type="number" value=<%Response.Write(rs("total"))%>>
+                        <input disabled type="number" value=<%Response.Write(rs("total"))%>>
                     </div>
                 </div>
                 <form action="./asp/update_password.asp" method="POST" id="update_password">
@@ -168,7 +166,7 @@
                         rs.Open query, con
                         Do Until rs.EOF
                     %>
-                            <div class="card">
+                            <div class="card" onclick="handleBlogClick(this);" style="cursor: pointer;">
                                 <div class="image">
                                     <img src=<% Response.Write(rs("image_path")) %> alt="computer">
                                 </div>
@@ -183,6 +181,7 @@
                                         <h5><% Response.Write(Session("username")) %></h5>
                                     </div>
                                 </div>
+                                <input type="hidden" id="_id" name=<% Response.Write(rs("blog_id")) %> />
                             </div>
                         <%
                         rs.MoveNext
@@ -203,8 +202,16 @@
 
     <script src="./javascript/tab_content.js"></script>
     <script src="./javascript/create_blog.js"></script>
-    <script src="./javascript/view_blog.js"></script>
     <script src="./javascript/profile.js"></script>
+    <script>
+        function handleBlogClick(e) {
+            const blogId = e.querySelector("#_id").name;
+            const blogForm = document.querySelector("#view form");
+            const blogInput = blogForm.querySelector("#blog_id");
+            blogInput.value = blogId;
+            blogForm.submit();
+        }
+    </script>
 </body>
 
 </html>

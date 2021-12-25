@@ -1,79 +1,125 @@
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.card .image img{
-    height: 200px;
-    width: 100%;
-}
-
-.card{
- min-height: 50vh;   
- width: 50%;
- margin: auto;
- margin-top: 30px; 
+.card .image img {
+  height: 200px;
+  width: 100%;
 }
 
-
- button{
-    display: flex !important;
-    justify-content: center ;
-    width: 200px;
+.card {
+  min-height: 50vh;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
 }
 
-.details h6{
-    display: flex!important;
-    justify-content: flex-end;
-    margin-right: 20px;
+button {
+  display: flex !important;
+  justify-content: center;
+  width: 200px;
 }
 
-.content p{
-     min-height: 200px !important;
-     max-height: 200px !important;
-     overflow-y: auto !important;
+.details h6 {
+  display: flex !important;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
-.content .title h4{
-    padding-left: 10px;
-}
-.content p{
-    padding-left: 10px !important;
-}
-
-.buttons{
-    display: flex;
-    align-items: center;
-    margin: auto;
-    margin-bottom: 20px;
-    
+.content p {
+  min-height: 200px !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
 }
 
-.buttons button{
-    padding: 7px 0;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    color: #fff;
+.content .title h4 {
+  padding-left: 10px;
+}
+.content p {
+  padding-left: 10px !important;
 }
 
+.form-content .buttons,
+.buttons {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
 
-#update{
-    background-color: #FFA701 !important;
-    
+.buttons button {
+  padding: 7px 0;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+#update {
+  background-color: #ffa701 !important;
 }
 
 #update i {
-    margin-top: 2.7px;
-    margin-right: 4px;
+  margin-top: 2.7px;
+  margin-right: 4px;
 }
 
-#delete{
-    background-color: #FF0000;
+#delete {
+  background-color: #ff0000;
 }
 #delete i {
-    margin-top: 2.7px;
-    margin-right: 4px;
+  margin-top: 2.7px;
+  margin-right: 4px;
 }
 
+/* FORM CONTENT */
+
+.form-content {
+  height: calc(100vh - 130px) !important;
+  width: 50% !important;
+  padding: 10px !important;
+  margin: 50px auto;
+  border: 2px solid #000;
+}
+
+.form-content .control {
+  display: block;
+  margin-bottom: 20px !important;
+}
+
+.form-content .control label {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-content textarea,
+.form-content input {
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  outline: none;
+  border: none;
+  width: 100%;
+  resize: none;
+  background-color: #f2f2f2;
+  padding: 10px 12px !important;
+}
+
+.form-content button {
+  color: #fff;
+  background-color: rgb(248, 100, 46);
+  border: none;
+  outline: none;
+  padding: 8px 15px !important;
+  font-size: 18px;
+}
+
+#save {
+  background-color: green;
+  color: #fff;
+}
+
+#cancel {
+  background-color: red;
+  color: #fff;
+}

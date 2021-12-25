@@ -13,12 +13,12 @@ form.onsubmit = (e) => {
     file_source.value = reader.result;
     form.submit();
   };
-  if (isEmpty(title)) return showErrorMessage("Title");
-  if (isEmpty(content)) return showErrorMessage("Content");
-  if (isEmpty(file_path)) return showErrorMessage("File");
+  if (isEmpty(title)) return errorMessage("Title");
+  if (isEmpty(content)) return errorMessage("Content");
+  if (isEmpty(file_path)) return errorMessage("File");
   reader.readAsDataURL(file_path.files[0]);
 };
 
-const showErrorMessage = (message) => {
+const errorMessage = (message) => {
   alert(`${message} should not be empty!!`);
 };

@@ -1,5 +1,6 @@
 <%@Language = "VBScript"%>
 <% Option Explicit%>
+<%Response.Buffer = True%>
 
 <%
 dim title, content, file_path, username, created_at, id
